@@ -4,22 +4,7 @@ import Exit from './exit.png'
 import Cookies from 'js-cookie';
 import Moment from 'react-moment';
 import { Route,Link,Switch, HashRouter,Redirect } from 'react-router-dom'
-
-// fetch('http://192.168.1.8:8000/api/v1/user/register',{
-//             method:'post',
-//             body:JSON.stringify(user),
-//             headers: {
-//                 "Accept" : "application/json",
-//                 "Content-Type" :"application/json"
-//             }
-//         }).then(response=>{
-//             debugger
-//             if(response.status==201){
-//                 this.setState({
-//                     redirect: true
-//                 })
-//                 return response.json();
-
+import config from '../config.json';
 
 
 class Details extends Component{
@@ -32,7 +17,7 @@ class Details extends Component{
 
     componentDidMount(){
         var that = this;
-        fetch('http://192.168.1.8:8000/api/v1/user/details',{
+        fetch(config.api_base+'/api/v1/user/details',{
                 method:'get',
                 headers:{
                     "Accept":"application/json",

@@ -3,6 +3,7 @@ import Logo from './icono_home.png'
 import { Link, BrowserRouter, HashRouter } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { M } from 'materialize-css/dist/js/materialize';
+import config from '../config.json';
 
 class Login extends Component{
     constructor(props){
@@ -24,7 +25,7 @@ class Login extends Component{
 
     handleClick(e){
         const {username, password} = this.state;
-        fetch('http://192.168.1.8:8000/api/v1/token/', {
+        fetch(config.api_base+'/api/v1/token/', {
             method: 'post',
             body:JSON.stringify({'username':username, 'password':password}),
             headers: {

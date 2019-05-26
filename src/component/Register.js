@@ -7,7 +7,7 @@ import styled from 'styled-components';
 // import { makeStyles } from 'material-ui/s'
 // margin - top right bottom left
 import {Container, DatePicker} from 'react-materialize';
-
+import config from '../config.json'
 
 class Register extends Component{
 
@@ -42,7 +42,7 @@ class Register extends Component{
     handleClick=e=>{
         e.preventDefault()
         var user = this.state;
-        fetch('http://192.168.1.8:8000/api/v1/user/register',{
+        fetch(config.api_base+'/api/v1/user/register',{
             method:'post',
             body:JSON.stringify(user),
             headers: {
